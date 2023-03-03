@@ -15,10 +15,12 @@ export const useUserStore = defineStore('user', () => {
                 password: password,
             });
             token.value = res.data.token;
-            console.log(token.value)
             expiresIn.value = res.data.expiresIn;
             sessionStorage.setItem('user', res.data.role);
             setTime();
+            if (token) {
+                loggedIn.value = true;
+            }
         } catch (error: any) {
             if (error.response) {
                 // console.log(error.response.data);
@@ -46,6 +48,9 @@ export const useUserStore = defineStore('user', () => {
             expiresIn.value = res.data.expiresIn;
             sessionStorage.setItem('user', res.data.role);
             setTime();
+            if (token) {
+                loggedIn.value = true;
+            } 
         } catch (error: any) {
             if (error.response) {
                 // console.log(error.response.data);
@@ -75,6 +80,7 @@ export const useUserStore = defineStore('user', () => {
     const logout = async () => {
         try {
             await api.post('/logout');
+            loggedIn.value = false;
         } catch (error: any) {
             console.log(error);
         } finally {

@@ -1,10 +1,5 @@
 <template>
     <q-page class="column col-12 justify-evenly">
-        <!-- Upload post buttom -->
-        <q-btn color="primary" to="subir-post" v-if="userStores.loggedIn">
-            Subir Post
-        </q-btn>
-
         <!-- Welcome Text -->
         <h1 class="col-12 col-md-6 bienvenida">
             Bienvenidos(as) <br />

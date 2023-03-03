@@ -17,7 +17,6 @@ const handleSubmit = async () => {
         loadding.value = !loadding.value;
         await userStore.access(email.value, password.value);
         router.push('/subir-post');
-        userStore.loggedIn = true;
         email.value = '';
         password.value = '';
     } catch (error: any) {
