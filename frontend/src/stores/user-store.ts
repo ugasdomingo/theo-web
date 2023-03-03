@@ -18,7 +18,7 @@ export const useUserStore = defineStore('user', () => {
             expiresIn.value = res.data.expiresIn;
             sessionStorage.setItem('user', res.data.role);
             setTime();
-            if (token) {
+            if (token.value) {
                 loggedIn.value = true;
             }
         } catch (error: any) {
@@ -48,7 +48,7 @@ export const useUserStore = defineStore('user', () => {
             expiresIn.value = res.data.expiresIn;
             sessionStorage.setItem('user', res.data.role);
             setTime();
-            if (token) {
+            if (token.value) {
                 loggedIn.value = true;
             } 
         } catch (error: any) {
