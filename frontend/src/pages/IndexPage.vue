@@ -6,7 +6,7 @@
         </q-btn>
 
         <!-- Welcome Text -->
-        <h1 class="col-12 col-md-6">
+        <h1 class="col-12 col-md-6 bienvenida">
             Bienvenidos(as) <br />
             a mi web
         </h1>
@@ -36,13 +36,25 @@ const userStores = useUserStore();
 </script>
 
 <style lang="scss" scoped>
+.bienvenida {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+}
 .navBar {
-    margin: 2em 0 6em;
+    margin-top: 0.5em;
+    margin-bottom: 10em;
 }
 .btn-navbar {
     color: whitesmoke;
     margin: 4px;
     box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #1976d2,
         0 0 0.8rem #1976d2, 0 0 2.8rem #1976d2, inset 0 0 1.3rem #1976d2;
+}
+
+@media screen and (max-width: 720px) {
+    .bienvenida {
+        margin-top: 2em;
+        padding-top: 1em;
+    }
 }
 </style>
