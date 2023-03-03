@@ -1,0 +1,46 @@
+// app global css in SCSS form
+
+body {
+    background-color: $oscuro;
+}
+
+p {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+@font-face {
+    font-family: customfont;
+    src: url(../../public/fonts/Nunito-Regular.ttf);
+    font-family: titles;
+    src: url(../../public/fonts/Lobster-Regular.ttf);
+}
+  
+// declare a class which applies it
+.nunito {
+  font-family: 'customfont';
+}
+.lobster {
+  font-family: 'titles';
+}
+
+h1 {
+    color: #fff;
+    padding: 1em 0em 0em 0em;
+    margin: 1em 0em 0em 0em;
+    text-shadow: 2px 2px 50px #fff;
+    font-family: 'customfont';
+    text-align: center;
+    line-height: 1.2em;
+}
+
+//Responsive at 720 px
+@media screen and (max-width: 720px) {
+    h1 {
+        font-size: 3em;
+        font-weight: 600;
+    }
+}
