@@ -15,7 +15,7 @@ const loadding = ref(false);
 const $q = useQuasar();
 const postsStore = usePostsStore();
 const router = useRouter();
-const categorys = ['Pod Cast', 'Turismo', 'Entrevistas', 'Eventos', 'Sketch'];
+const categorys = ['PodCast', 'Turismo', 'Entrevistas', 'Eventos', 'Sketch'];
 const handleSubmit = async () => {
     try {
         loadding.value = true;

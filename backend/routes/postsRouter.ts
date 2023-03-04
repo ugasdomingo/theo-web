@@ -7,6 +7,7 @@ import {
 	getAllPost,
 	getPost,
 	updatePost,
+	getAllPostByCategory,
 } from "../controllers/postsController";
 
 //Define router
@@ -14,6 +15,8 @@ const postsRouter = Router();
 
 //Routes
 postsRouter.get("/", getAllPost);
+
+postsRouter.get("/category/:category", getAllPostByCategory);
 
 postsRouter.post("/", adminAuth, createPost);
 

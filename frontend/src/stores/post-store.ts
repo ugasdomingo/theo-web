@@ -8,6 +8,7 @@ export const usePostsStore = defineStore('posts', () => {
     const userStore = useUserStore();
 
     const allPosts = ref([]);
+    const allPostsByCategory = ref([]);
 
     const getAllPosts = async () => {
         try {
@@ -18,9 +19,9 @@ export const usePostsStore = defineStore('posts', () => {
                     Authorization: 'Bearer ' + userStore.token,
                 },
             });
-            console.log(res.data)
             allPosts.value = res.data.map((item: any) => {
                 return {
+                    id: item._id,
                     title: item.title,
                     url: item.url,
                     category: item.category,
@@ -31,6 +32,30 @@ export const usePostsStore = defineStore('posts', () => {
             throw error.response?.data || error;
         }
     };
+
+    const getAllPostsByCategory =async (category: string) => {
+        try {
+            const res = await api({
+                url: '/posts/category/' + category,
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer ' + userStore.token,
+                },
+            });
+            allPostsByCategory.value = res.data.map((item: any) => {
+                return {
+                    id: item._id,
+                    title: item.title,
+                    url: item.url,
+                    category: item.category,
+                    description: item.description,
+                };
+            });
+        } catch (error: any) {
+            throw error.response?.data || error;
+            
+        }
+    }
 
     const createPost = async (
         title: string,
@@ -58,5 +83,21 @@ export const usePostsStore = defineStore('posts', () => {
         }
     };
 
-    return { createPost, allPosts, getAllPosts };
+    const deletePost = async (id: string) => {
+        try {
+            const res = await api({
+                url: 'posts/' + id,
+                method: 'DELETE',
+                headers: {
+                    Authorization: 'Bearer ' + userStore.token,
+                },
+            })
+            console.log(res.data)
+        } catch (error: any) {
+            throw error.response?.data || error;
+            
+        }
+    }
+
+    return { createPost, allPosts, getAllPosts, deletePost, getAllPostsByCategory, allPostsByCategory };
 });

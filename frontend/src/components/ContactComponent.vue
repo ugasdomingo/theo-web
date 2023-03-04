@@ -13,6 +13,9 @@
                 stack
                 glossy
                 color="red"
+                href="https://www.youtube.com/@TheoOviedo"
+                target="blank"
+                class="buttom"
             />
             <q-btn
                 icon="mdi-instagram "
@@ -20,6 +23,9 @@
                 stack
                 glossy
                 color="orange"
+                href="https://www.instagram.com/theooviedo/?hl=es"
+                target="blank"
+                class="buttom"
             />
             <q-btn
                 icon="mdi-facebook"
@@ -27,6 +33,9 @@
                 stack
                 glossy
                 color="purple"
+                href="https://www.facebook.com/profile.php?id=100063023178968&paipv=0&eav=AfbjmRcqhAR3o6wnAIdson2R9EgBeyRkLV99-fTc4Qloq6f1b9UQBbOqDPlFAtrI84Y"
+                target="blank"
+                class="buttom"
             />
             <q-btn
                 icon="mdi-twitter"
@@ -34,9 +43,16 @@
                 stack
                 glossy
                 color="blue"
+                href="https://mobile.twitter.com/theooviedo1"
+                target="blank"
+                class="buttom"
             />
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.buttom {
+    margin: 4px;
+}
+</style>

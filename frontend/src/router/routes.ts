@@ -8,6 +8,11 @@ const routes: RouteRecordRaw[] = [
       { path: '', component: () => import('pages/IndexPage.vue') },
       { path: 'login', component: () => import('pages/LoginPage.vue') },
       { path: 'register', component: () => import('pages/RegisterPage.vue') },
+      { path: 'podcast', component: () => import('pages/PodcastPage.vue') },
+      { path: 'entrevistas', component: () => import('pages/EntrevistasPage.vue') },
+      { path: 'turismo', component: () => import('pages/TurismoPage.vue') },
+      { path: 'eventos', component: () => import('pages/EventosPage.vue') },
+      { path: 'sketch', component: () => import('pages/SketchPage.vue') },
       { 
         path: 'subir-post', 
         component: () => import('pages/CreatePostPage.vue'),

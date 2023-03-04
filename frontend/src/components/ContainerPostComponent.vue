@@ -19,20 +19,30 @@ const getAllPosts = async () => {
 
     //Order by category
     postsStore.allPosts.map((item: any) => {
-        if (item.category == 'Pod Cast') {
-            podcast.value.push(item);
+        if (item.category == 'PodCast') {
+            if (podcast.value.length <= 2) {
+                podcast.value.push(item);
+            }
         }
         if (item.category == 'Turismo') {
-            turismo.value.push(item);
+            if (turismo.value.length <= 2) {
+                turismo.value.push(item);
+            }
         }
         if (item.category == 'Entrevistas') {
-            entrevistas.value.push(item);
+            if (entrevistas.value.length <= 2) {
+                entrevistas.value.push(item);
+            }
         }
         if (item.category == 'Eventos') {
-            eventos.value.push(item);
+            if (eventos.value.length <= 2) {
+                eventos.value.push(item);
+            }
         }
         if (item.category == 'Sketch') {
-            sketch.value.push(item);
+            if (sketch.value.length <= 2) {
+                sketch.value.push(item);
+            }
         }
     });
 };
@@ -46,30 +56,65 @@ getAllPosts();
             <template v-for="post of podcast" :key="post.id">
                 <CardPostComponent :post="post" class="q-ma-sm" />
             </template>
+            <q-btn
+                fab
+                to="podcast"
+                icon="mdi-arrow-right-circle-outline"
+                color="green"
+                label="Ver todos"
+            />
         </div>
         <div id="turismo" class="row flex-center post-container2">
             <h3>Turismo</h3>
             <template v-for="post of turismo" :key="post.id">
                 <CardPostComponent :post="post" class="q-ma-sm" />
             </template>
+            <q-btn
+                fab
+                to="turismo"
+                icon="mdi-arrow-right-circle-outline"
+                color="green"
+                label="Ver todos"
+            />
         </div>
         <div id="entrevistas" class="row flex-center post-container">
             <h3>Entrevistas</h3>
             <template v-for="post of entrevistas" :key="post.id">
                 <CardPostComponent :post="post" class="q-ma-sm" />
             </template>
+            <q-btn
+                fab
+                to="entrevistas"
+                icon="mdi-arrow-right-circle-outline"
+                color="green"
+                label="Ver todos"
+            />
         </div>
         <div id="eventos" class="row flex-center post-container2">
             <h3>Eventos</h3>
             <template v-for="post of eventos" :key="post.id">
                 <CardPostComponent :post="post" class="q-ma-sm" />
             </template>
+            <q-btn
+                fab
+                to="eventos"
+                icon="mdi-arrow-right-circle-outline"
+                color="green"
+                label="Ver todos"
+            />
         </div>
         <div id="sketch" class="row flex-center post-container">
             <h3>Sketch</h3>
             <template v-for="post of sketch" :key="post.id">
                 <CardPostComponent :post="post" class="q-ma-sm" />
             </template>
+            <q-btn
+                fab
+                to="sketch"
+                icon="mdi-arrow-right-circle-outline"
+                color="green"
+                label="Ver todos"
+            />
         </div>
     </q-page>
 </template>

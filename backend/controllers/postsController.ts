@@ -17,6 +17,17 @@ export const getAllPost = async (req: any, res: any) => {
 	}
 };
 
+// getAllCategoryPost Controller
+export const getAllPostByCategory =async (req:any, res: any) => {
+	try {
+		const categoryPost = await Post.find({category: req.params.category})
+		res.send(categoryPost);
+	} catch (error: any) {
+		return res.status(500).json({ message: error.message });
+		
+	}
+};
+
 // createPost Controller
 export const createPost = async (req: any, res: any) => {
 	try {
