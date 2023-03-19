@@ -5,20 +5,25 @@ import { useQuasar } from 'quasar';
 import { usePostsStore } from 'stores/post-store';
 import { useRouter } from 'vue-router';
 
-//Logic
+//Setup Ref for collect data
 const title = ref('');
 const category = ref('');
 const url = ref('');
 const description = ref('');
 const loadding = ref(false);
 
+//Activate tools
 const $q = useQuasar();
 const postsStore = usePostsStore();
 const router = useRouter();
+
+//Categorys Options for input
 const categorys = ['PodCast', 'Turismo', 'Entrevistas', 'Eventos', 'Sketch'];
+
 const handleSubmit = async () => {
     try {
-        loadding.value = true;
+        loadding.value = true; //Display loadding animation
+
         await postsStore.createPost(
             title.value,
             url.value,
@@ -26,9 +31,10 @@ const handleSubmit = async () => {
             description.value
         );
 
-        loadding.value = false;
+        loadding.value = false; //Cancel loadding animation
         $q.notify('Post Guardado');
 
+        //Clean data from stores
         title.value = '';
         category.value = '';
         url.value = '';

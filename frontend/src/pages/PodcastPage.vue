@@ -6,17 +6,23 @@
                 v-for="post of postsStore.allPostsByCategory"
                 :key="post.id"
             >
-                <CategoryCardComponent :post="post" class="q-ma-sm" />
+                <CardPostComponent :post="post" class="q-ma-sm" />
             </template>
         </div>
     </q-page>
 </template>
 
 <script setup lang="ts">
+//Import tools
 import { usePostsStore } from 'src/stores/post-store';
-import CategoryCardComponent from 'src/components/CategoryCardComponent.vue';
 
+//Import Components
+import CardPostComponent from 'src/components/cards/CardPostComponent.vue';
+
+//Activate tools
 const postsStore = usePostsStore();
+
+// Get all PoCast Post
 postsStore.getAllPostsByCategory('PodCast');
 </script>
 

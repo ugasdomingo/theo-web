@@ -1,15 +1,6 @@
 // app global css in SCSS form
-
 body {
-    background-color: $oscuro;
-}
-
-p {
-    color: white;
-}
-
-h3 {
-    color: white;
+    background-image: linear-gradient(to bottom , #21211F, #101010 );
 }
 
 @font-face {
@@ -28,10 +19,9 @@ h3 {
 }
 
 h1 {
-    color: #fff;
+    color: whitesmoke;
     padding: 1em 0em 0em 0em;
     margin: 1em 0em 0em 0em;
-    text-shadow: 2px 2px 50px #fff;
     font-family: 'customfont';
     text-align: center;
     line-height: 1.2em;

@@ -10,6 +10,42 @@ export const usePostsStore = defineStore('posts', () => {
     const allPosts = ref([]);
     const allPostsByCategory = ref([]);
 
+    const podcast = ref([]);
+    const turismo = ref([]);
+    const entrevistas = ref([]);
+    const eventos = ref([]);
+    const sketch = ref([]);
+
+    const clasificated_post_by_category = () => {
+        allPosts.value.map((item: any) => {
+            if (item.category == 'PodCast') {
+                if (podcast.value.length <= 1) {
+                    podcast.value.push(item);
+                }
+            }
+            if (item.category == 'Turismo') {
+                if (turismo.value.length <= 1) {
+                    turismo.value.push(item);
+                }
+            }
+            if (item.category == 'Entrevistas') {
+                if (entrevistas.value.length <= 1) {
+                    entrevistas.value.push(item);
+                }
+            }
+            if (item.category == 'Eventos') {
+                if (eventos.value.length <= 1) {
+                    eventos.value.push(item);
+                }
+            }
+            if (item.category == 'Sketch') {
+                if (sketch.value.length <= 1) {
+                    sketch.value.push(item);
+                }
+            }
+        });
+    }
+
     const getAllPosts = async () => {
         try {
             const res = await api({
@@ -28,6 +64,8 @@ export const usePostsStore = defineStore('posts', () => {
                     description: item.description,
                 };
             });
+
+            clasificated_post_by_category()
         } catch (error: any) {
             throw error.response?.data || error;
         }
@@ -99,5 +137,5 @@ export const usePostsStore = defineStore('posts', () => {
         }
     }
 
-    return { createPost, allPosts, getAllPosts, deletePost, getAllPostsByCategory, allPostsByCategory };
+    return { createPost, allPosts, getAllPosts, deletePost, getAllPostsByCategory, allPostsByCategory, podcast, turismo, entrevistas, eventos, sketch };
 });

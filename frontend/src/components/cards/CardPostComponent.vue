@@ -2,14 +2,12 @@
 //Import Tools
 import { useUserStore } from 'src/stores/user-store';
 import { usePostsStore } from 'src/stores/post-store';
-import { useRouter } from 'vue-router';
 import { useQuasar } from 'quasar';
 import { ref } from 'vue';
 
-//Logic
+//Activate tools
 const userStores = useUserStore();
 const postsStore = usePostsStore();
-const router = useRouter();
 const $q = useQuasar();
 const loadding = ref(false);
 
@@ -28,32 +26,37 @@ defineProps({
 </script>
 
 <template>
-    <q-card class="my-card cursor-pointer">
-        <q-video :src="post?.url" />
-        <q-card-section>
-            <p class="q-py-xs text-black text-center nunito">
-                {{ post?.title }}
-            </p>
-        </q-card-section>
-        <q-card-section v-if="userStores.loggedIn">
+    <div class="column">
+        <q-card class="my-card cursor-pointer">
+            <q-video :src="post?.url" />
+            <q-card-section>
+                <p class="q-py-xs text-center">
+                    {{ post?.title }}
+                </p>
+            </q-card-section>
+        </q-card>
+        <div v-if="userStores.loggedIn">
             <q-btn
                 glossy
                 color="primary"
                 @click="deletePost(post?.id, post?.category)"
                 label="Eliminar"
             />
-        </q-card-section>
-    </q-card>
+        </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 p {
-    font-weight: 600;
+    color: antiquewhite;
+    font-weight: 400;
     padding: 0;
 }
 .my-card {
     width: 100%;
     max-width: 250px;
     max-height: 250px;
+    padding: 1em;
+    background-color: $dark;
 }
 </style>

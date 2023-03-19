@@ -1,5 +1,6 @@
 <template>
     <q-layout view="hhh lpR fFf" class="index-container">
+        <!-- Header -->
         <q-header id="header" class="transparent">
             <q-toolbar class="flex-center">
                 <router-link
@@ -23,6 +24,7 @@
 
         <q-page-container>
             <router-view />
+            <!-- Scroll up and Whatsapp sticky buttoms -->
             <q-page-sticky position="bottom-right" :offset="[18, 18]">
                 <div class="column">
                     <q-btn
@@ -44,9 +46,11 @@
 </template>
 
 <script setup lang="ts">
+//Import tools
 import { useRouter } from 'vue-router';
 import { useUserStore } from '../stores/user-store';
 
+//Activate tools
 const userStores = useUserStore();
 const router = useRouter();
 
@@ -61,17 +65,7 @@ const logout = async () => {
 .btn {
     margin: 8px;
 }
-.index-container {
-    background-image: url('../../public/images/Hero-grande.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 
 @media screen and (max-width: 720px) {
-    .index-container {
-        background-image: url('../../public/images/Hero-pequeno.jpg');
-        background-size: auto;
-    }
 }
 </style>
